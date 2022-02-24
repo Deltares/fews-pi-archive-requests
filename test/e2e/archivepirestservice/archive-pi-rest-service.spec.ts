@@ -1,9 +1,9 @@
 import 'isomorphic-fetch';
-import ArchivePiRestService from "../../src/archivepirestservice/archive-pi-rest-service";
-import RequestedAttributes from "../../src/requestbuilder/requested-attributes";
-import ArchiveLocation from "../../src/data/archive-location";
-import ArchiveParameter from "../../src/data/archive-parameter";
-import Attribute from "../../src/data/archive-attribute";
+import ArchivePiRestService from "../../../src/archivepirestservice/archive-pi-rest-service";
+import RequestedAttributes from "../../../src/requestbuilder/requested-attributes";
+import ArchiveLocation from "../../../src/data/archive-location";
+import ArchiveParameter from "../../../src/data/archive-parameter";
+import Attribute from "../../../src/data/archive-attribute";
 
 describe('pi rest service tests', () => {
     it('query locations with parameters', async () => {

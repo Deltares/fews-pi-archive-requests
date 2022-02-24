@@ -26,15 +26,4 @@ export default class RequestedAttributes {
         return requestParameters;
     }
 
-    public createQualifiers(): string {
-        let qualfiers = "";
-        for (const attributeId of this.attributes.keys()) {
-            const values = this.attributes.get(attributeId);
-            if (values === undefined) continue;
-            for (const value of values) {
-                qualfiers = qualfiers + "&qualifierIds=" + value;
-            }
-        }
-        return qualfiers;
-    }
 }
