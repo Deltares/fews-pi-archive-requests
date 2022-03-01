@@ -30,6 +30,7 @@
   "devDependencies": {
     "@types/fetch-mock": "^7.3.5",
     "@types/jest": "^27.0.2",
+    "jest-teamcity-reporter": "^0.9.0",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
     "eslint": "^6.8.0",
@@ -64,5 +65,13 @@
   },
   "bugs": {
     "url": "https://github.com/Deltares/fews-pi-requests/issues"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "testResultsProcessor": "jest-teamcity-reporter",
+    "coverageReporters": ["lcov", "text", "teamcity"]
   }
 }
