@@ -65,13 +65,5 @@
   },
   "bugs": {
     "url": "https://github.com/Deltares/fews-pi-requests/issues"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "vue"
-    ],
-    "testResultsProcessor": "jest-teamcity-reporter",
-    "coverageReporters": ["lcov", "text", "teamcity"]
   }
 }
