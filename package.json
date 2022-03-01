@@ -22,7 +22,7 @@
     "lint:fix": "eslint src/**.ts --fix",
     "test:unit": "jest unit --collect-coverage",
     "test:e2d": "jest e2e",
-    "test": "jest --collect-coverage"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "isomorphic-fetch": "^3.0.0"
