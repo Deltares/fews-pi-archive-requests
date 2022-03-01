@@ -25,7 +25,7 @@ describe('pi rest service tests', () => {
         requestedAttributes.add("source", values);
         const locationsResponse = await restService.getLocations(requestedAttributes, parameters);
         const locationsSet = locationsResponse.data as Set<ArchiveLocation>;
-        expect(locationsSet.size).toBe(37);
+        expect(locationsSet.size).toBe(38);
     })
 
     it('query parameters with locations', async () => {

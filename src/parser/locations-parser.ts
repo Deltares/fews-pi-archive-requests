@@ -1,5 +1,5 @@
 import JsonParser from "./json-parser";
-import ArchiveLocation from "@/data/archive-location";
+import ArchiveLocation from "../data/archive-location";
 
 export default class LocationsParser implements JsonParser<Set<ArchiveLocation>> {
     parse(response: any): Set<ArchiveLocation> {

@@ -18,6 +18,13 @@ export default class ArchivePiRestService {
     public static locationsRequestPath = "/archive/locations?documentFormat=PI_JSON";
     public static attributesRequestPath = "/archive/attributes?documentFormat=PI_JSON";
 
+    /**
+     * gets the locations from the archive
+     *
+     * @param {RequestedAttributes} An object containing the requested attributes.
+     * @param {string[] } The requested parameter ids.
+     * @return {DataRequestResult} The result of the request.
+     */
     public async getLocations(requestedAttribute: RequestedAttributes, parameters: string[]): Promise<DataRequestResult<Set<ArchiveLocation>>> {
         const request = LocationsRequestBuilder.createLocationRequest(requestedAttribute, parameters);
         const piRestService = new PiRestService(ArchivePiRestService.webserviceURL);
@@ -26,6 +33,13 @@ export default class ArchivePiRestService {
         return await piRestService.getData(request, requestOptions, locationsParser);
     }
 
+    /**
+     * gets the parameters from the archive
+     *
+     * @param {RequestedAttributes} An object containing the requested attributes.
+     * @param {string[] } The requested locations ids.
+     * @return {DataRequestResult} The result of the request.
+     */
     public async getParameters(requestedAttribute: RequestedAttributes, selectedLocations: string[]): Promise<DataRequestResult<Set<ArchiveParameter>>> {
         const parameterRequest = ParameterRequestBuilder.createParameterRequest(requestedAttribute, selectedLocations);
         const piRestService = new PiRestService(ArchivePiRestService.webserviceURL);
@@ -34,6 +48,14 @@ export default class ArchivePiRestService {
         return await piRestService.getData(parameterRequest, requestOptions, parametersParser);
     }
 
+    /**
+     * gets the attributes from the archive
+     *
+     * @param {string[] } The requested parameter ids.
+     * @param {string[] } The requested location ids.
+     * @param {string[] } The requested attribute ids.
+     * @return {DataRequestResult} The result of the request.
+     */
     public async getAttributes(parameterIds: string[], locationIds: string[], attributes: string[]): Promise<DataRequestResult<Set<Attribute>>> {
         const attributesRequest = AttributesRequestBuilder.createAttributesRequest(parameterIds, locationIds, attributes);
         const piRestService = new PiRestService(ArchivePiRestService.webserviceURL);
