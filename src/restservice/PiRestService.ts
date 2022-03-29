@@ -1,9 +1,9 @@
-import RequestOptions from "./request-options";
-import DataRequestResult from "./data-request-result";
-import JsonParser from "../parser/json-parser";
+import RequestOptions from "./RequestOptions";
+import DataRequestResult from "./DataRequestResult";
+import JsonParser from "../parser/JsonParser";
 
 export default class PiRestService {
-    private webserviceUrl: string;
+    private readonly webserviceUrl: string;
 
     constructor(webserviceUrl: string) {
         this.webserviceUrl = webserviceUrl;

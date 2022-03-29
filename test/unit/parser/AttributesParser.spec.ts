@@ -2,14 +2,14 @@ import {enableFetchMocks} from 'jest-fetch-mock'
 
 enableFetchMocks()
 import expectedResponse from '../mock/parser/attributes.json'
-import AttributesParser from "../../../src/parser/attributes-parser";
+import AttributesParser from "../../../src/parser/AttributesParser";
 
 
 describe('attribute parser tests', () => {
     it('parse attribute', async () => {
         const parser = new AttributesParser();
         const attributes = parser.parse(expectedResponse);
-        expect(attributes.size).toBe(2);
+        expect(attributes.length).toBe(2);
 
         const allAttributes = attributes.values();
         const firstAttribute = allAttributes.next().value;

@@ -2,14 +2,14 @@ import {enableFetchMocks} from 'jest-fetch-mock'
 
 enableFetchMocks()
 import expectedResponse from '../mock/parser/locations.json'
-import LocationsParser from "../../../src/parser/locations-parser";
+import LocationsParser from "../../../src/parser/LocationsParser";
 
 
 describe('location parser tests', () => {
     it('parse locations', async () => {
         const parser = new LocationsParser();
         const locations = parser.parse(expectedResponse);
-        expect(locations.size).toBe(2);
+        expect(locations.length).toBe(2);
 
         const allLocations = locations.values();
         const firstLocation = allLocations.next().value;

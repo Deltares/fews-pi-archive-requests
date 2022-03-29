@@ -1,9 +1,9 @@
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock'
 
 enableFetchMocks()
-import PiRestService from "../../../src/restservice/pi-rest-service";
-import RequestOptions from "../../../src/restservice/request-options";
-import LocationsParser from "../../../src/parser/locations-parser";
+import PiRestService from "../../../src/restservice/PiRestService";
+import RequestOptions from "../../../src/restservice/RequestOptions";
+import LocationsParser from "../../../src/parser/LocationsParser";
 
 
 describe('pi rest service tests', () => {
