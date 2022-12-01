@@ -1,13 +1,13 @@
 import 'isomorphic-fetch';
 import ArchivePiRestService from "../../../src/archivepirestservice/ArchivePiRestService";
 import RequestedAttributes from "../../../src/requestbuilder/RequestedAttributes";
-import ArchiveLocation from "../../../src/data/ArchiveLocation";
-import ArchiveParameter from "../../../src/data/ArchiveParameter";
-import Attribute from "../../../src/data/ArchiveAttribute";
 import 'dotenv/config'
 import LocationsRequest from "../../../src/archivepirestservice/requests/LocationsRequest";
 import ParametersRequest from "../../../src/archivepirestservice/requests/ParametersRequest";
 import AttributesRequest from "../../../src/archivepirestservice/requests/AttributesRequest";
+import {ArchiveLocation} from "../../../src/data/ArchiveLocationsResponse";
+import {ArchiveParameter} from "../../../src/data/ArchiveParametersResponse";
+import {ArchiveAttribute} from "../../../src/data/ArchiveAttributesResponse";
 
 describe('pi rest service tests', () => {
     it('query locations with parameters', async () => {
@@ -20,7 +20,7 @@ describe('pi rest service tests', () => {
         locationRequest.requestedAttribute = new RequestedAttributes();
         const locationsResponse = await restService.getLocations(locationRequest);
         const locationsSet = locationsResponse.data as ArchiveLocation[];
-        expect(locationsSet.length).toBe(74);
+        expect(locationsSet.length).toBeGreaterThan(55);
     })
 
     it('query locations with parameters and attributes', async () => {
@@ -79,8 +79,8 @@ describe('pi rest service tests', () => {
         attributeQuery.parameters = [];
         attributeQuery.attributes = [];
         const attributeResponse = await restService.getAttributes(attributeQuery);
-        const parameters = attributeResponse.data as Attribute[];
-        expect(parameters.length).toBe(42);
+        const parameters = attributeResponse.data as ArchiveAttribute[];
+        expect(parameters.length).toBeGreaterThan(42);
     })
 
     it('query attributes for location and parameters', async () => {
@@ -97,8 +97,8 @@ describe('pi rest service tests', () => {
         attributeQuery.parameters = parameters;
         attributeQuery.attributes = [];
         const attributeResponse = await restService.getAttributes(attributeQuery);
-        const attributes = attributeResponse.data as Attribute[];
-        expect(attributes.length).toBe(39);
+        const attributes = attributeResponse.data as ArchiveAttribute[];
+        expect(attributes.length).toBe(43);
     })
 
     it('query attributes for location and parameters and attributes', async () => {
@@ -118,7 +118,7 @@ describe('pi rest service tests', () => {
         attributeQuery.attributes = requestedAttributes;
 
         const attributeResponse = await restService.getAttributes(attributeQuery);
-        const attributes = attributeResponse.data as Attribute[];
-        expect(attributes.length).toBe(6);
+        const attributes = attributeResponse.data as ArchiveAttribute[];
+        expect(attributes.length).toBeGreaterThan(6)
     })
 })

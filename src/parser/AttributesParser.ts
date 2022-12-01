@@ -1,9 +1,9 @@
 import JsonParser from "./JsonParser";
-import Attribute from "../data/ArchiveAttribute";
+import {ArchiveAttribute} from "@/data/ArchiveAttributesResponse";
 
-export default class AttributesParser implements JsonParser<Attribute[]> {
-    parse(response: any): Attribute[] {
-        const attributes: Attribute[] = [];
+export default class AttributesParser implements JsonParser<ArchiveAttribute[]> {
+    parse(response: any): ArchiveAttribute[] {
+        const attributes: ArchiveAttribute[] = [];
         const archiveAttributes = response.archiveAttributes;
         for (const archiveAttribute of archiveAttributes) {
             attributes.push(archiveAttribute);

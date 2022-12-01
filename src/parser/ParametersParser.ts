@@ -1,5 +1,5 @@
 import JsonParser from "./JsonParser";
-import ArchiveParameter from "../data/ArchiveParameter";
+import {ArchiveParameter} from "@/data/ArchiveParametersResponse";
 
 export default class ParametersParser implements JsonParser<ArchiveParameter[]> {
     parse(response: any): ArchiveParameter[] {

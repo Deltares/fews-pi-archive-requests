@@ -1,4 +1,3 @@
-import ArchiveLocation from "../data/ArchiveLocation";
 import LocationsParser from "../parser/LocationsParser";
 import PiRestService from "../restservice/PiRestService";
 import DataRequestResult from "../restservice/DataRequestResult";
@@ -6,14 +5,15 @@ import LocationsRequestBuilder from "../requestbuilder/LocationsRequestBuilder";
 import RequestedAttributes from "../requestbuilder/RequestedAttributes";
 import RequestOptions from "../restservice/RequestOptions";
 import ParameterRequestBuilder from "../requestbuilder/ParameterRequestBuilder";
-import ArchiveParameter from "../data/ArchiveParameter";
 import ParametersParser from "../parser/ParametersParser";
 import AttributesRequestBuilder from "../requestbuilder/AttributesRequestBuilder";
-import Attribute from "../data/ArchiveAttribute";
 import AttributesParser from "../parser/AttributesParser";
 import LocationsRequest from "@/archivepirestservice/requests/LocationsRequest";
 import ParametersRequest from "@/archivepirestservice/requests/ParametersRequest";
 import AttributesRequest from "@/archivepirestservice/requests/AttributesRequest";
+import {ArchiveParameter} from "@/data/ArchiveParametersResponse";
+import {ArchiveLocation} from "@/data/ArchiveLocationsResponse";
+import {ArchiveAttribute} from "@/data/ArchiveAttributesResponse";
 
 export default class ArchivePiRestService {
     private webserviceURL = "https://rwsos-dataservices-ont.avi.deltares.nl/matroos/FewsWebServices/rest/fewspiservice/v1";
@@ -60,7 +60,7 @@ export default class ArchivePiRestService {
      * @param {AttributesRequest } attributeRequest The requested parameter ids.
      * @return {DataRequestResult} The result of the request.
      */
-    public async getAttributes(attributeRequest: AttributesRequest): Promise<DataRequestResult<Attribute[]>> {
+    public async getAttributes(attributeRequest: AttributesRequest): Promise<DataRequestResult<ArchiveAttribute[]>> {
         const attributesRequest = AttributesRequestBuilder.createAttributesRequest(attributeRequest);
         const piRestService = new PiRestService(this.webserviceURL);
         const requestOptions = new RequestOptions();

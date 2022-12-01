@@ -20,7 +20,7 @@ export default class RequestedAttributes {
             const values = this.attributes.get(attributeId);
             if (values === undefined) continue;
             for (const value of values) {
-                requestParameters = requestParameters + "&attribute(" + attributeId + ")=" + value;
+                requestParameters = requestParameters + "&attribute(" + encodeURIComponent(attributeId) + ")=" + encodeURIComponent(value);
             }
         }
         return requestParameters;

@@ -5,13 +5,13 @@ export default class AttributesRequestBuilder {
     public static createAttributesRequest(attributeRequest: AttributesRequest): string {
         let query = ArchivePiRestService.attributesRequestPath;
         for (const parameter of attributeRequest.parameters) {
-            query = query + "&parameterId=" + parameter;
+            query = query + "&parameterId=" + encodeURIComponent(parameter);
         }
         for (const location of attributeRequest.locations) {
-            query = query + "&locationId=" + location;
+            query = query + "&locationId=" + encodeURIComponent(location);
         }
         for (const attribute of attributeRequest.attributes) {
-            query = query + "&attributes=" + attribute;
+            query = query + "&attributes=" + encodeURIComponent(attribute);
         }
         return query;
     }

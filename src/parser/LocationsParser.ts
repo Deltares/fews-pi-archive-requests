@@ -1,5 +1,5 @@
 import JsonParser from "./JsonParser";
-import ArchiveLocation from "../data/ArchiveLocation";
+import {ArchiveLocation} from "@/data/ArchiveLocationsResponse";
 
 export default class LocationsParser implements JsonParser<ArchiveLocation[]> {
     parse(response: any): ArchiveLocation[] {
